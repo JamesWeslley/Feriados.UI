@@ -1,0 +1,80 @@
+<form [formGroup]="formGroup">
+    <div class="form-group  mb-3">
+        <div class="mb-1">
+            <label for="titulo" class="form-label">Titulo</label>
+            <input type="text" class="form-control" formControlName="titulo" name="titulo">
+        </div>
+    </div>
+    <div class="form-group mb-3">
+        <div class="mb-1">
+            <label for="data" class="form-label">Data (DD/MM)</label>
+            <input type="text" class="form-control" formControlName="data" name="data">
+        </div>
+        <span class="text-danger" *ngIf="controlesRegistrados?.['data']?.errors?.['maxlength'] && submitted">
+            Data deve conter no máximo 5 caracteres.
+        </span>
+    </div>
+    <div class="form-group mb-3">
+        <div class="mb-1">
+            <label for="descricao" class="form-label">Descrição</label>
+            <input type="text" class="form-control" formControlName="descricao" name="descricao">
+        </div>
+        <span class="text-danger" *ngIf="(controlesRegistrados?.['descricao']?.errors?.['required']) && submitted">
+            Descrição é obrigatório.
+        </span>
+        <span class="text-danger" *ngIf="controlesRegistrados?.['descricao']?.errors?.['maxlength'] && submitted">
+            Descrição deve conter no máximo 200 caracteres.
+        </span>
+    </div>
+    <div class="form-group mb-3">
+        <div class="mb-1">
+            <label for="legislacao" class="form-label">Legislação</label>
+            <input type="text" class="form-control" formControlName="legislacao" name="legislacao">
+        </div>
+        <span class="text-danger" *ngIf="(controlesRegistrados?.['legislacao']?.errors?.['required']) && submitted">
+            Legislação é obrigatório.
+        </span>
+        <span class="text-danger" *ngIf="controlesRegistrados?.['legislacao']?.errors?.['maxlength'] && submitted">
+            Legislação deve conter no máximo 200 caracteres.
+        </span>
+    </div>
+    <div class="form-group mb-3">
+        <div class="mb-1">
+            <label for="tipo" class="form-label">Tipo</label>
+            <input type="text" class="form-control" formControlName="tipo" name="tipo">
+        </div>
+        <span class="text-danger" *ngIf="(controlesRegistrados?.['tipo']?.errors?.['required']) && submitted">
+            Tipo é obrigatório.
+        </span>
+        <span class="text-danger" *ngIf="(controlesRegistrados?.['tipo']?.errors?.['maxlength']) && submitted">
+            Tipo deve conter no máximo 50 caracteres.
+        </span>
+    </div>
+    <div class="form-group mb-3">
+        <div class="mb-1">
+            <label for="horaInicio (HH:MM:SS)" class="form-label">Horário Inicial (HH:MM:SS)</label>
+            <input type="text" class="form-control" formControlName="horaInicio" name="horaInicio">
+        </div>
+        <span class="text-danger" *ngIf="controlesRegistrados?.['horaInicio']?.errors?.['maxlength'] && submitted">
+            Horário Inicial deve conter no máximo 8 caracteres.
+        </span>
+    </div>
+    <div class="form-group mb-3">
+        <div class="mb-1">
+            <label for="horaFim (HH:MM:SS)" class="form-label">Horário Final (HH:MM:SS)</label>
+            <input type="text" class="form-control" formControlName="horaFim" name="horaFim">
+        </div>
+        <span class="text-danger" *ngIf="controlesRegistrados?.['horaFim']?.errors?.['maxlength'] && submitted">
+            Horário Final deve conter no máximo 8 caracteres.
+        </span>
+    </div>
+    <!-- <div class="form-group mb-3">
+        <div class="mb-1">
+            <label for="datasMoveis" class="form-label">Datas Móveis</label>
+            <input type="text" class="form-control" formControlName="datasMoveis" name="datasMoveis">
+        </div>
+    </div> -->
+    <button (click)="salvar()" class="btn btn-primary">
+        Salvar
+    </button>
+</form>
